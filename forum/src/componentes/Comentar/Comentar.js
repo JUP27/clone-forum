@@ -4,9 +4,19 @@ import { AutorComentario, BotaoCondicional, ComentarioContainer, ComentarioDoAut
 import Curtir from "../Curtir/Curtir";
 
 
-const Comentar = () => {
+const Comentar = ([postId, comments, autorId]) => {
 
+   const [novocomentario, setNovoComentario] = useState('')
+   const [comentarios, setComentarios] = useState([])
+   const [mostrarComentarios, setMostrar] = useState(false)
    
+   const adicionarComentario = ()=>{
+    if(novocomentario.trim() !== ''){
+        createComment(postId,novocomentario)
+        setComentarios(...comments, novocomentario)
+        setNovoComentario('')
+    }
+   }
 
     return (
 
